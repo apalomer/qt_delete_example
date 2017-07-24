@@ -23,5 +23,5 @@ void ButtonStack::on_addButton_clicked()
 void ButtonStack::remove(Button* button)
 {
     ui->qvboxlayout->removeWidget(button);
-    delete button;
+    button->deleteLater();
 }

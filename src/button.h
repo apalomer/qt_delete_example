@@ -16,8 +16,7 @@ public:
     ~Button();
 
 private slots:
-    void on_pushButton_clicked();
-    void on_actionRemove_triggered();
+    void removeRequested();
 
 signals:
     void remove(Button* button);

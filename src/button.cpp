@@ -8,6 +8,8 @@ Button::Button(int n, QWidget *parent) :
     ui->setupUi(this);
     ui->pushButton->setText("Remove button "+QString::number(n));
     addAction(ui->actionRemove);
+    connect(ui->actionRemove,SIGNAL(triggered()),this,SLOT(removeRequested()));
+    connect(ui->pushButton,SIGNAL(clicked()),this,SLOT(removeRequested()));
 }
 
 Button::~Button()
@@ -15,12 +17,7 @@ Button::~Button()
     delete ui;
 }
 
-void Button::on_pushButton_clicked()
-{
-    emit remove(this);
-}
-
-void Button::on_actionRemove_triggered()
+void Button::removeRequested()
 {
     emit remove(this);
 }
